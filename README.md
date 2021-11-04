@@ -4,11 +4,6 @@ This is a starter project that uses webpack to transpile and bundle ES6 React co
 
 * Click the use template button above and follow the instructions
 
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && npm i
-```
-
-To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server`.
+To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server.
 
 Additional components should be placed in `client/components`.
