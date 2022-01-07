@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import Header from './Header'
+import { Route, Routes } from 'react-router-dom'
 
 const App = () => {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      {count}
-      <h1>Hello World</h1>
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <Routes>
+        <Route path="/" element={<Header/>}></Route>
+      </Routes>
+
     </>
   )
 }
