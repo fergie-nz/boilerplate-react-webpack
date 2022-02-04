@@ -16,5 +16,14 @@ test('testing array depth', () => {
   expect(actual).toBe(expected)
 })
 
+test('testing array internal count', () => {
+  const array = state.testArray(10)
+  const actual = state.countNeighbours(2,2,array)
+  const expected = 2
+  expect(actual).toBe(expected)
+})
+
+
+
 const state = require('./state')
           

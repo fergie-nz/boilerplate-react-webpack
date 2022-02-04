@@ -1,6 +1,21 @@
 module.exports = {
   createArray,
-  changeState
+  changeState,
+  countNeighbours,
+  testArray
+}
+
+function testArray(dimension) {
+  let arr = new Array(dimension)
+  for (var i=0; i<dimension; i++ ) {
+    arr[i] = new Array(dimension)
+  }
+  arr[0][0] = 1
+  arr[0][1] = 1
+  arr[2][2] = 1
+  arr[2][3] = 1
+  arr[3][2] = 1
+  return arr
 }
 
 function createArray(dimension) {
@@ -17,9 +32,6 @@ function changeState(arr) {
   let newState = [...arr]
   for (var i=0; i<dimensioni; i++) {
     for (var j=0; j<dimensionj; j++) {
-      
-      neighbours = neighbours - arr[i][j]
-
       switch (true) {
         case (neighbours < 2):
           newState[i][j] = 0
@@ -42,11 +54,13 @@ function changeState(arr) {
   return newState
 }
 
-function countNeighbours(i, j, dimension) {
+function countNeighbours(i, j, arr) {
   let neighbours = 0
-      for (var i = -1; i<2; i++) {
-        for (var j=-1; j<2; l++) {
+      for (var k = -1; k<2; k++) {
+        for (var l=-1; l<2; l++) {
           neighbours += arr[i+k][j+l]
         }
       }
+      neighbours = neighbours - arr[i][j]
+  return neighbours
 }
