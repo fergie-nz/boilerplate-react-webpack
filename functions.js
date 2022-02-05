@@ -4,7 +4,8 @@ module.exports = {
   countNeighbours,
   testArray,
   testNewState,
-  copyArray
+  deepCloneArray,
+  testReturn10
 }
 
 function testArray(dimension) {
@@ -28,6 +29,10 @@ function testNewState(dimension) {
   return arr
 }
 
+function testReturn10() {
+  return 10
+}
+
 function createArray(dimension) {
   let arr = new Array(dimension)
   for (var i=0; i<dimension; i++ ) {
@@ -38,14 +43,21 @@ function createArray(dimension) {
   return arr
 }
 
-function copyArray(dimensioni, dimensionj) {
-  
+function deepCloneArray(arr) {
+  let clone = []
+  for (var i=0;i<arr.length;i++) {
+    clone[i]=[]
+    for (var j=0;j<arr[i].length;j++) {
+      clone[i][j] = arr[i][j]
+    }
+  }
+  return clone
 }
 
 function changeState(arr) {
   let dimensioni = arr.length
   let dimensionj = arr[0].length
-  let newState = createArray(arr.length)
+  let newState = deepCloneArray(arr)
   for (var i=0; i<dimensioni; i++) {
     for (var j=0; j<dimensionj; j++) {
       let neighbours = countNeighbours(i,j,arr)

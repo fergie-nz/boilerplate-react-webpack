@@ -37,5 +37,12 @@ test('test the changing of state is correct for internal cells', () => {
   expect(actual).toStrictEqual(expected)
 })
 
+test('deep cloning function working', () => {
+  const array = state.testArray(10)
+  const expected = array
+  const actual = state.deepCloneArray(array)
+  expect(actual).toStrictEqual(expected)    
+})
+
 const state = require('./functions')
           

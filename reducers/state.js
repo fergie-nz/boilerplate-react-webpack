@@ -1,15 +1,25 @@
 import { STEP_STATE } from "../actions/state"
 import { TOGGLE_TILE } from "../actions/state"
+import { deepCloneArray } from "../functions"
 
-import functions from './functions'
+import functions from '../functions'
 
-const intialState = functions.createArray[10]
+const intialState = functions.testArray(10)
+
 
 const stateReducer = (state = intialState, action) => {
+  const newState= []
   switch (action.type) {
     case STEP_STATE:
-      return state
+      newState = changeState(state)
+      return newState
     case TOGGLE_TILE:
-      newState = 
+      newState = deepCloneArray(state)
+      newState[action.i][action.j] = ! newState[action.i][action.j]
+      return newState
+    default:
+      return state
   }
 }
+
+export default stateReducer
