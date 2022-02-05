@@ -1,10 +1,18 @@
 import React from "react"
+import store from "../store"
+import { stepState } from '../../actions/state'
 
 function Controls () {
+
+  const submitHandler = () => {
+    console.log('clicked')
+    store.dispatch(stepState())
+  }
+
   return (
     <>
       <div className='controller-bar'>
-        <button>Step Change</button>
+        <button onClick={() => submitHandler()}>Step Change</button>
       </div>
     </>
   )

@@ -8,13 +8,13 @@ const intialState = functions.testArray(10)
 
 
 const stateReducer = (state = intialState, action) => {
-  const newState= []
+  var newState= []
   switch (action.type) {
     case STEP_STATE:
-      newState = changeState(state)
+      newState = functions.changeState(state)
       return newState
     case TOGGLE_TILE:
-      newState = deepCloneArray(state)
+      newState = functions.deepCloneArray(state)
       newState[action.i][action.j] = ! newState[action.i][action.j]
       return newState
     default:
