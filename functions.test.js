@@ -23,7 +23,19 @@ test('testing array internal count', () => {
   expect(actual).toBe(expected)
 })
 
+test('testing array external count', () => {
+  const array = state.testArray(10)
+  const actual = state.countNeighbours(0,0,array)
+  const expected = 1
+  expect(actual).toBe(expected)
+})
 
+test('test the changing of state is correct for internal cells', () => {
+  const array = state.testArray(10)
+  const expected = state.testNewState(10)
+  const actual = state.changeState(array)
+  expect(actual).toStrictEqual(expected)
+})
 
-const state = require('./state')
+const state = require('./functions')
           
