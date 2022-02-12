@@ -11,20 +11,21 @@ function Grid () {
   
   // console.log(grid)
 
-  console.log(state)
-  console.log(state.state)
+  console.log(grid)
 
   return (
-    <div className='grid-border'>
-      <div className='boardSpace'>
-        {grid.map((row) => {
-          return row.map((tile) => {
-            return <Tile
-              living={tile.living}
-              />
-          })
-        })}
-      </div>
+    <div className='boardSpace'>
+      {grid.map((row) => {
+        return (
+          <div className='grid-row'>
+              {row.map((tile) => {
+              return <Tile
+                living={tile.living}
+                />
+            })}
+          </div>
+        )
+      })}
     </div>
   )
 }

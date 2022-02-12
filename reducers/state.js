@@ -3,7 +3,9 @@ import { TOGGLE_TILE } from "../actions/state"
 
 import functions from '../functions'
 
-const intialState = functions.testArray(10)
+const gridSize = 5
+
+const intialState = functions.testArray(gridSize)
 
 const stateReducer = (state = intialState, action) => {
   var newState= []
