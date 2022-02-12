@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Header from './Header'
 import Controls from './Controls'
+import Grid from './Grid'
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
     <div>
       <Header/>
       <Controls/>
+      <Grid/>
     </div>
   )
 }

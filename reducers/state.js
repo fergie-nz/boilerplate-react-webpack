@@ -1,11 +1,9 @@
 import { STEP_STATE } from "../actions/state"
 import { TOGGLE_TILE } from "../actions/state"
-import { deepCloneArray } from "../functions"
 
 import functions from '../functions'
 
 const intialState = functions.testArray(10)
-
 
 const stateReducer = (state = intialState, action) => {
   var newState= []
@@ -15,11 +13,11 @@ const stateReducer = (state = intialState, action) => {
       return newState
     case TOGGLE_TILE:
       newState = functions.deepCloneArray(state)
-      newState[action.i][action.j] = ! newState[action.i][action.j]
+      newState.living[action.i][action.j] = ! newState[action.i][action.j].living
       return newState
     default:
       return state
-  }
+  } 
 }
 
 export default stateReducer

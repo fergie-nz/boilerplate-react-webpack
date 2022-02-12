@@ -1,37 +1,30 @@
 import React from 'react'
 import store from '../store'
 
+import Tile from './tile'
+
 function Grid () {
 
-  const tile = <div className = 'tile'></div>
-  const tileAlive = <div className = 'tileAlive'></div>
-
   const state = store.getState()
+  const grid = state.state
+  
+  
+  // console.log(grid)
 
-  var grid = []
-  for (let i=0; i<state.length;i++) {
-    for (let j = 0; j<state[0].length; j++) {
-      grid[i][j] = tile
-      if (state[i][j] == true) {
-        grid[i][j] = tileAlive
-      }
-    }
-  }
+  console.log(state)
+  console.log(state.state)
+
   return (
     <div className='grid-border'>
-      <div className='grid'>
-        {grid.map(())}
-      </div>
-      {/* <div className="grid">
-        {grid.map((row, rowId) => {
-          return (
-            <div key={rowId}>
-              {row.map((node, nodeId) => {
-                return (
-                  <Node></Node>
-                )
+      <div className='boardSpace'>
+        {grid.map((row) => {
+          return row.map((tile) => {
+            return <Tile
+              living={tile.living}
+              />
+          })
         })}
-      </div> */}
+      </div>
     </div>
   )
 }
