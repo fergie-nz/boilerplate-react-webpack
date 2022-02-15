@@ -1,6 +1,9 @@
 {
   "name": "boilerplate-react-webpack",
   "version": "0.2.3",
+  "engines": {
+    "node": "16.13.1"
+  },
   "description": "A webpack React starter",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
