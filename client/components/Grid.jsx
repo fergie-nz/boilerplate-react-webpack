@@ -11,7 +11,7 @@ function Grid () {
   
   // console.log(grid)
 
-  console.log(grid)
+  // console.log(grid)
 
   return (
     <div className='boardSpace'>
@@ -21,6 +21,7 @@ function Grid () {
               {row.map((tile) => {
               return <Tile
                 living={tile.living}
+                key={tile.key}
                 />
             })}
           </div>

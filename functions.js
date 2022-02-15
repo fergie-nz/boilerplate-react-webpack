@@ -1,11 +1,14 @@
+const { countNeighbours } = require("./countNeighbours")
+var _ = require("lodash")
+
 module.exports = {
   createArray,
   changeState,
-  countNeighbours,
   testArray,
   testNewState,
   deepCloneArray,
-  testReturn10
+  testReturn10,
+  countNeighbours
 }
 
 function testArray(dimension) {
@@ -54,7 +57,8 @@ function deepCloneArray(arr) {
   for (var i=0;i<arr.length;i++) {
     clone[i]=[]
     for (var j=0;j<arr[i].length;j++) {
-      clone[i][j] = arr[i][j]
+      clone[i][j].living = arr[i][j].living
+      clone[i][j].key = arr[i][j].key
     }
   }
   return clone
@@ -63,7 +67,7 @@ function deepCloneArray(arr) {
 function changeState(arr) {
   let dimensioni = arr.length
   let dimensionj = arr[0].length
-  let newState = deepCloneArray(arr)
+  let newState = _.cloneDeep(arr)
   for (var i=0; i<dimensioni; i++) {
     for (var j=0; j<dimensionj; j++) {
       let neighbours = countNeighbours(i,j,arr)
@@ -72,17 +76,17 @@ function changeState(arr) {
           newState[i][j].living = false
           // console.log('case 1')
           break
-        case ((neighbours == 2) && (arr[i][j] == true)):
+        case ((neighbours == 2) && (arr[i][j].living == true)):
           newState[i][j].living = true
           // console.log('case 2')
           break
-        case ((neighbours == 2) && (arr[i][j] == false)):
+        case ((neighbours == 2) && (arr[i][j].living == false)):
           newState[i][j].living = false
           // console.log('case 3')
           break
         case (neighbours == 3):
           newState[i][j].living = true
-          // console.log('case 4')
+          // console.log(`Neighbour count is 3 for cell ${i + ' ' + j}`)
           break
         case (neighbours >3):
           newState[i][j].living = false
@@ -92,23 +96,6 @@ function changeState(arr) {
     }
   }
   return newState
-}
-
-function countNeighbours(i, j, arr) {
-  let neighbours = 0
-      for (var k = -1; k<2; k++) {
-        for (var l=-1; l<2; l++) {
-          if((i+k) > -1 && (i+k) < arr.length && (j+l) > -1 && (j+l) < arr[0].length) {
-            if (arr[i+k][j+l].living == true) {
-              neighbours+=1
-            }
-          }
-        }
-      }
-      if (arr[i][j].living==true){
-        neighbours-=1
-      }
-  return neighbours
 }
 
 // const array = testArray(10)

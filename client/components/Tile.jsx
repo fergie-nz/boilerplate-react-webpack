@@ -1,6 +1,6 @@
 import React from "react"
 
-const Tile = ({living}) => {
+const Tile = ({living, key}) => {
 
   const tile = 'tile'
   
@@ -10,7 +10,7 @@ const Tile = ({living}) => {
   }
 
   return (
-  <div className = {tile + ' ' + n}>
+  <div className = {tile + ' ' + n} key={key}>
   </div>
   )
 }

@@ -30,6 +30,13 @@ test('testing array external count', () => {
   expect(actual).toBe(expected)
 })
 
+test('testing countNeighbours for wrong results', () => {
+  const array = state.testArray(10)
+  const actual = state.countNeighbours(1,1,array)
+  const expected = 3
+  expect(actual).toBe(expected)
+})
+
 test('test the changing of state is correct for internal cells', () => {
   const array = state.testArray(10)
   const expected = state.testNewState(10)
@@ -40,9 +47,19 @@ test('test the changing of state is correct for internal cells', () => {
 test('deep cloning function working', () => {
   const array = state.testArray(10)
   const expected = array
-  const actual = state.deepCloneArray(array)
+  const actual = _.cloneDeep(array)
   expect(actual).toStrictEqual(expected)    
 })
 
+test('changing deep clone states results in no longer clone', () => {
+  const array = state.testArray(10)
+  const actual = _.cloneDeep(array)
+  actual[0][0].living = false
+  const expected = array
+  expect(actual).not.toStrictEqual(expected)
+})
+
 const state = require('./functions')
+var _ = require("lodash")
+
           

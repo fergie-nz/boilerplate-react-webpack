@@ -3,7 +3,7 @@ import { TOGGLE_TILE } from "../actions/state"
 
 import functions from '../functions'
 
-const gridSize = 5
+const gridSize = 20
 
 const intialState = functions.testArray(gridSize)
 

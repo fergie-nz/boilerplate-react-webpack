@@ -5,7 +5,7 @@ import { stepState } from '../../actions/state'
 function Controls () {
 
   const submitHandler = () => {
-    console.log('clicked')
+    // console.log('clicked')
     store.dispatch(stepState())
   }
 
