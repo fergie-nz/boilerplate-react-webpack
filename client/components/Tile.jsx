@@ -1,6 +1,16 @@
 import React from "react"
+import store from "../store"
+import { toggleTile } from "../../actions/state"
 
-const Tile = ({living, key}) => {
+const Tile = ({living, coord}) => {
+  // console.log(living)
+  // console.log(coord)
+
+  const clickHandler = (coord) => {
+    let i = coord.charAt(0)
+    let j = coord.charAt(1)
+    store.dispatch(toggleTile(i,j))
+  }
 
   const tile = 'tile'
   
@@ -10,7 +20,7 @@ const Tile = ({living, key}) => {
   }
 
   return (
-  <div className = {tile + ' ' + n} key={key}>
+  <div onClick={() => clickHandler(coord)} className = {tile + ' ' + n} key={coord}>
   </div>
   )
 }

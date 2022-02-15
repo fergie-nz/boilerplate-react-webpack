@@ -3,7 +3,8 @@ import {combineReducers} from 'redux'
 import state from './state'
 
 const reducer = combineReducers({
-  state
+  state,
+  // savedState
 })
 
 export default reducer

@@ -19,9 +19,10 @@ function Grid () {
         return (
           <div className='grid-row'>
               {row.map((tile) => {
+                // console.log(tile.key)
               return <Tile
                 living={tile.living}
-                key={tile.key}
+                coord={tile.coord}
                 />
             })}
           </div>

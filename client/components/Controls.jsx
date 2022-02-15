@@ -9,10 +9,13 @@ function Controls () {
     store.dispatch(stepState())
   }
 
+
+
   return (
     <>
       <div className='controller-bar'>
         <button onClick={() => submitHandler()}>Step Change</button>
+        {/* <button onClick={() => resetState()}>Reset game state</button> */}
       </div>
     </>
   )

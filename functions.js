@@ -6,7 +6,6 @@ module.exports = {
   changeState,
   testArray,
   testNewState,
-  deepCloneArray,
   testReturn10,
   countNeighbours
 }
@@ -44,25 +43,26 @@ function createArray(dimension) {
     while(size--) {
       var obj = {}
       obj.living = false
-      obj.key = ''
-      obj.key = String(i) + String(size)
+      obj.coord = ''
+      let jcoord = dimension-size-1
+      obj.coord = String(i) + String(jcoord)
       arr[i].push(obj)
     }
   }
   return arr
 }
 
-function deepCloneArray(arr) {
-  let clone = []
-  for (var i=0;i<arr.length;i++) {
-    clone[i]=[]
-    for (var j=0;j<arr[i].length;j++) {
-      clone[i][j].living = arr[i][j].living
-      clone[i][j].key = arr[i][j].key
-    }
-  }
-  return clone
-}
+// function deepCloneArray(arr) {
+//   let clone = []
+//   for (var i=0;i<arr.length;i++) {
+//     clone[i]=[]
+//     for (var j=0;j<arr[i].length;j++) {
+//       clone[i][j].living = arr[i][j].living
+//       clone[i][j].coord = arr[i][j].coord
+//     }
+//   }
+//   return clone
+// }
 
 function changeState(arr) {
   let dimensioni = arr.length
