@@ -1,7 +1,7 @@
 import React from 'react'
 import store from '../store'
 
-import Tile from './tile'
+import Tile from './Tile'
 
 function Grid () {
 
