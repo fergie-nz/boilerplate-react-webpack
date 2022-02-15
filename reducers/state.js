@@ -5,7 +5,7 @@ import functions from '../functions'
 
 var _ = require("lodash")
 
-const gridSize = 5
+const gridSize = 10
 
 const intialState = functions.testArray(gridSize)
 
