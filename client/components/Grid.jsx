@@ -7,6 +7,9 @@ function Grid () {
 
   const state = store.getState()
   const grid = state.state
+
+
+  
   
   
   // console.log(grid)

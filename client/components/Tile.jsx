@@ -1,6 +1,7 @@
 import React from "react"
 import store from "../store"
 import { toggleTile } from "../../actions/state"
+import { iGrid } from '../../actions/state'
 
 const Tile = ({living, coord}) => {
   // console.log(living)
@@ -10,6 +11,10 @@ const Tile = ({living, coord}) => {
     let i = coord.charAt(0)
     let j = coord.charAt(1)
     store.dispatch(toggleTile(i,j))
+
+    let state = store.getState()
+    let initialGrid = state.state
+    store.dispatch(iGrid(initialGrid))
   }
 
   const tile = 'tile'
