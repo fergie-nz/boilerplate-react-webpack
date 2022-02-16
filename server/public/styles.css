@@ -16,13 +16,30 @@
 }
 
 .tileAlive {
-  background-color: yellow;
+  background-color: rgb(34, 34, 34);
 }
 
 .boardSpace {
   display: grid;
   justify-content: center;
 }
+
+.header-container {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.controller-bar {
+  margin: 0 auto;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.controller-bar button {
+  margin: 10px;
+}
+
+
 
 /* .grid-row {
 } */

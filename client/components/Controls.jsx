@@ -29,13 +29,11 @@ function Controls () {
 
 
   return (
-    <>
       <div className='controller-bar'>
-        <button onClick={() => submitHandler()}>Step Change</button>
-        <button onClick={() => resetToSaved()}>Reset to last edit</button>
-        <button onClick={() => cleanBoard()}>Clear board</button>
+        <button className="button" onClick={() => submitHandler()}>Step Change</button>
+        <button className="button" onClick={() => resetToSaved()}>Reset to last edit</button>
+        <button className="button" onClick={() => cleanBoard()}>Clear board</button>
       </div>
-    </>
   )
 }
 

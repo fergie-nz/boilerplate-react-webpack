@@ -1,10 +1,9 @@
 import { INITIAL_GRID } from '../actions/state'
 import functions from '../functions'
+import { gridSize } from './state'
 
 
 var _ = require("lodash")
-
-const gridSize = 20
 
 const initialState = functions.testArray(gridSize)
 
