@@ -8,7 +8,7 @@ var _ = require("lodash")
 
 export const gridSize = 20
 
-const intialState = functions.testArray(gridSize)
+const intialState = functions.testArray2(gridSize)
 
 const stateReducer = (state = intialState, action) => {
   var newState= []

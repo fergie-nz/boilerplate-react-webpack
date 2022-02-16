@@ -7,7 +7,18 @@ module.exports = {
   testArray,
   testNewState,
   testReturn10,
-  countNeighbours
+  countNeighbours,
+  testArray2
+}
+
+function testArray2(dimension) {
+  let arr = createArray(dimension)
+  arr[0][1].living = true
+  arr[1][2].living = true
+  arr[2][0].living = true
+  arr[2][1].living = true
+  arr[2][2].living = true
+  return arr
 }
 
 function testArray(dimension) {

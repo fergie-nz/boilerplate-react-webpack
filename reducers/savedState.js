@@ -5,7 +5,7 @@ import { gridSize } from './state'
 
 var _ = require("lodash")
 
-const initialState = functions.testArray(gridSize)
+const initialState = functions.testArray2(gridSize)
 
 const stateReducer = (state = initialState, action) => {
   var newState = []
