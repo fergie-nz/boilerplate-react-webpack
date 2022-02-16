@@ -11,6 +11,10 @@
   display: inline-flex;
 }
 
+.grid-row {
+  height: 20px;
+}
+
 .tileAlive {
   background-color: yellow;
 }
@@ -22,8 +26,3 @@
 
 /* .grid-row {
 } */
-
-*body {
-  margin: 0;
-  padding: 0;
-}
