@@ -8,9 +8,10 @@ const Tile = ({living, coord}) => {
   // console.log(coord)
 
   const clickHandler = (coord) => {
-    let i = coord.charAt(0)
-    let j = coord.charAt(1)
+    let i = coord.row
+    let j = coord.col
     store.dispatch(toggleTile(i,j))
+    console.log(coord)
 
     let state = store.getState()
     let initialGrid = state.state

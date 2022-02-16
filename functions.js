@@ -43,9 +43,10 @@ function createArray(dimension) {
     while(size--) {
       var obj = {}
       obj.living = false
-      obj.coord = ''
+      obj.coord = {}
       let jcoord = dimension-size-1
-      obj.coord = String(i) + String(jcoord)
+      obj.coord.row = i
+      obj.coord.col = jcoord
       arr[i].push(obj)
     }
   }

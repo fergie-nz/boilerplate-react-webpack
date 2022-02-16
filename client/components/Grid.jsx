@@ -8,21 +8,13 @@ function Grid () {
   const state = store.getState()
   const grid = state.state
 
-
-  
-  
-  
-  // console.log(grid)
-
-  // console.log(grid)
-
   return (
     <div className='boardSpace'>
       {grid.map((row) => {
         return (
           <div className='grid-row'>
               {row.map((tile) => {
-                // console.log(tile.key)
+                // console.log(tile)
               return <Tile
                 living={tile.living}
                 coord={tile.coord}
