@@ -1,9 +1,16 @@
-# A starter webpack project for React
+# Conway's game of life in React
 
-This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:
+This is a rendition of Conway's 'game of life' in react.
 
-* Click the use template button above and follow the instructions
+##Installation
+Clone, 
+npm run dev
+Or you can view on Heroku at:
 
-To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server.
+https://gof-react-fergus-roache.herokuapp.com/
 
-Additional components should be placed in `client/components`.
+#Future work:
+-A timing start device to cycle through automatically
+-A shape encyclopedia
+-Dynamic re sizing of grid to account for growing shapes
+
