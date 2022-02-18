@@ -10,7 +10,7 @@ export const stepState = () => {
   }
 }
 
-export const toggleTile = (i,j) => {
+export const toggleTile = (i, j) => {
   return {
     type: TOGGLE_TILE,
     i,
@@ -34,11 +34,8 @@ export const resetState = (savedState) => {
 
 export const clearBoard = () => {
   return {
-    type: CLEAR_BOARD,
+    type: CLEAR_BOARD
   }
 }
 
-
-
 // export const resetState = () => {}
-

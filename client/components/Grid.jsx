@@ -4,7 +4,6 @@ import store from '../store'
 import Tile from './Tile'
 
 function Grid () {
-
   const state = store.getState()
   const grid = state.state
 
@@ -12,13 +11,14 @@ function Grid () {
     <div className='boardSpace'>
       {grid.map((row) => {
         return (
-          <div className='grid-row'>
-              {row.map((tile) => {
-                // console.log(tile)
+          <div className='grid-row' key = "row">
+            {row.map((tile) => {
+              // console.log(tile)
               return <Tile
                 living={tile.living}
                 coord={tile.coord}
-                />
+                key={tile.coord}
+              />
             })}
           </div>
         )
