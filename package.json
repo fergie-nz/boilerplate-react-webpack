@@ -12,10 +12,10 @@
   "scripts": {
     "client": "webpack serve --config ./client/webpack.config.js --hot",
     "dev": "run-p dev:client dev:server",
-    "dev:client": "npm run webpack -- --watch",
+    "dev:client": "PORT=3000 npm run webpack -- --watch",
     "dev:server": "nodemon server",
     "start": "node server",
-    "build": "npm run webpack",
+    "build": "npm run webpack -- --watch",
     "server": "node server --watchAll",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -44,8 +44,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.18.1",
     "lodash": "^4.17.21",
+    "pg": "^8.7.3",
     "redux": "^4.1.2"
   },
   "devDependencies": {

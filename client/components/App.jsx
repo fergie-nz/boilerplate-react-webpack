@@ -5,6 +5,7 @@ import Controls from './Controls'
 import Grid from './Grid'
 
 const App = () => {
+  console.log('app called')
 
   return (
     <div>
