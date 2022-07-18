@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { create } = require('lodash');
 
 const router = express.Router()
 
@@ -11,22 +12,60 @@ const pool = new Pool({
   port: 5432,
 });
 
-router.getShapes = () => {
+router.get('/', (resolve, reject) => {
+    getShapes()
+    .then((shapes) => {
+        setTimeout(()=>{
+            resolve.json(shapes)
+        },1000)
+    })
+})
+
+router.get('/id', (resolve, reject) => {
+    getOneShape(req.params.id)
+        .then((shape) => {
+            resolve.json(shapes)
+        })
+})
+
+router.post('/', (req, res) => {
+    createShape(req.body.name, req.body.array)
+    .then(idArr=> {
+        res.json({
+            newID: idArr[0]
+        })
+    })
+})
+
+router.delete('/:id', (req, res) => {
+    deleteShape(req.params.id)
+        .then((numDeleted) => {
+            res.json({deleted: numDeleted ===1 })
+        })
+})
+
+const getShapes = () => {
     return new Promise(function(resolve, reject) {
         pool.query('SELECT * FROM shape_library ORDER BY id ASC', (error, results) => {
             if (error) {
                 reject (error)
             }
         })
-        .then((shapes) => {
-            setTimeout(() => )
+    })
+}
+
+const getOneShape = (id) => {
+    return new Promise(function(resolve, reject) {
+        pool.query('SELECT FROM shape_library (name, array) where id = $1', [id], (error, results) => {
+            if (error) {
+                reject (error)
+            }
         })
     })
 }
   
-router.createShape = (body) => {
+const createShape = (name, array) => {
     return new Promise(function(resolve, reject) {
-        const {name, array} = body
         pool.query('INSERT INTO shape_library (name, array) VALUES ($1, $2) RETURNING *', [name, array], (error, results) => {
             if (error) {
                 reject(error)
@@ -36,10 +75,10 @@ router.createShape = (body) => {
     })
 }
   
-router.deleteShape = (body) => {
+const deleteShape = (body) => {
     return new Promise(function(resolve, reject) {
         const {name} = body
-        pool.query('DELETE FROM shape_library where name = $1', [id], (error, results) => {
+        pool.query('DELETE FROM shape_library where id = $1', [id], (error, results) => {
             if (error) {
                 reject (error)
             }
@@ -48,4 +87,4 @@ router.deleteShape = (body) => {
     })
 }
 
-module.expores = router
+module.exports = router

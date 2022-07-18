@@ -2,10 +2,10 @@ const {application} = require('express')
 const express = require('express')
 const app = express()
 
+
 const port = process.env.PORT || 3001
 
 const shapeRoutes = require('./routes/shapes')
-const shapes = require('./shapes')
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -17,34 +17,8 @@ app.use(function (req, res, next) {
 
 app.use('/api/v1/shapes', shapeRoutes)
 
-app.get('/', (req, res) => {
-  shapes.getShapes()
-  .then(response => {
-    res.status(200).send(response)
-  })
-  .catch(error=>{
-    res.status(500).send(error)
-  })
-})
-
-app.post('/shapes', (req, res) => {
-    shapes.createShape(req.body)
-    .then(response => {
-        res.status(200).send(response)
-    })
-    .catch(error=>{
-        res.status(500).send(error)
-      })
-})
-
-app.delete('/shapes/:id', (req, res) => {
-    shapes.deleteShape(req.params.id)
-    .then(response => {
-        res.status(200).send(response)
-    })
-    .catch(error=>{
-        res.status(500).send(error)
-      })
+app.get('*', (req, res) => {
+  res.sendFile(__dirname+ '/public/index.html')
 })
 
 app.listen(port, function () {
