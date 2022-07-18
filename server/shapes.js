@@ -32,7 +32,7 @@ const createShape = (body) => {
 const deleteShape = (body) => {
   return new Promise(function(resolve, reject) {
       const {name} = body
-      pool.query('DELETE FROM shape_library where name = $1', [name], (error, results) => {
+      pool.query('DELETE FROM shape_library where name = $1', [id], (error, results) => {
           if (error) {
               reject (error)
           }
